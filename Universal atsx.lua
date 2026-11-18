@@ -326,12 +326,12 @@ bind(RunService.RenderStepped, function()
         end
         h.PlatformStand = true
         local cf, d = Camera.CFrame, Vector3.zero
-        if UIS:IsKeyDown(Enum.KeyCode.W) then d += cf.LookVector end
-        if UIS:IsKeyDown(Enum.KeyCode.S) then d -= cf.LookVector end
-        if UIS:IsKeyDown(Enum.KeyCode.D) then d += cf.RightVector end
-        if UIS:IsKeyDown(Enum.KeyCode.A) then d -= cf.RightVector end
-        if UIS:IsKeyDown(Enum.KeyCode.Space) then d += Vector3.yAxis end
-        if UIS:IsKeyDown(Enum.KeyCode.LeftShift) then d -= Vector3.yAxis end
+        if UIS:IsKeyDown(Enum.KeyCode.W) then d = d + cf.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then d = d - cf.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then d = d + cf.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then d = d - cf.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.Space) then d = d + Vector3.new(0, 1, 0) end
+        if UIS:IsKeyDown(Enum.KeyCode.LeftShift) then d = d - Vector3.new(0, 1, 0) end
         flyBV.Velocity = d.Magnitude > 0 and d.Unit * S.flyVal or Vector3.zero
         flyBG.CFrame = cf
     end
